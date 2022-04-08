@@ -1,0 +1,70 @@
+HELP.md
+target/
+test/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**
+!**/src/test/**
+package
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+.vscode/
+
+# maven ignore
+*.war
+*.zip
+*.tar
+*.gz
+
+# eclipse ignore
+.settings/
+
+# idea ignore
+.idea/
+*.ipr
+*.iml
+*.iws
+
+# temp ignore
+*.log
+*.cache
+*.diff
+*.patch
+*.tmp
+*.swp
+
+# system ignore
+.DS_Store
+Thumbs.db
+
+
+
+#findreport
+db.backup
+db.data
+db.lck
+db.log
+db.properties
+db.script
+performanceAnalyze.db
+
+
+#angular
+node_modules/
+
+data/

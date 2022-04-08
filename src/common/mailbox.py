@@ -29,7 +29,7 @@ class Mailbox(object):
         """ Send email with txt body
 
         Args:
-            receive (list): all recipient mailboxes
+            receive (str): recipient mailboxe
             subject (str): email title
             txt (str): email body
 

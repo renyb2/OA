@@ -13,23 +13,14 @@
 #    under the License.
 
 from common.cfg import YAML
-from common.utils import Email
+from common.mailbox import Mailbox
 
 
 CONF_FILE = r"./etc/email.yaml"
 
 CONF = YAML()
 CONF = CONF.load(CONF_FILE)
-print(CONF)
 
-EMAIL = Email(CONF['smtp'], CONF['send'])
+Mailbox = Mailbox(CONF['smtp'], CONF['send'])
 
 
-txt = 'renyb send email'
-subject = 'OA'
-receive = CONF['receive']['email'][1]
-
-if EMAIL.send_email(receive , subject, txt):
-    print('send success')
-else:
-    print('send failed')

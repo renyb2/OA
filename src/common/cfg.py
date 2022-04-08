@@ -21,6 +21,14 @@ class YAML(object):
         pass
 
     def load(self, file) -> dict:
+        """ Read configuration information from yaml
+
+        Args:
+            file (str): yaml file path
+
+        Returns:
+            dict: configuration information
+        """
         with open(file, 'r') as f:
             return yaml.safe_load(f)
 

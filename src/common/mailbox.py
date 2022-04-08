@@ -16,7 +16,8 @@ import smtplib
 from email.mime.text import MIMEText
 
 
-class Email(object):
+class Mailbox(object):
+    """ Email Manager """
 
     def __init__(self, smtp, send) -> None:
         self.smtp_server = smtp['server']
@@ -24,9 +25,18 @@ class Email(object):
         self.send_address = send['email']
         self.send_passwd = send['passwd']
 
-    def send_email(self, receive, subject, txt) -> bool:
+    def send_email_with_txt(self, receive, subject, txt) -> bool:
+        """ Send email with txt body
+
+        Args:
+            receive (list): all recipient mailboxes
+            subject (str): email title
+            txt (str): email body
+
+        Returns:
+            bool: whether the mail was sent successfully or not.
+        """
         try:
-            #import pdb;pdb.set_trace()
             msg = MIMEText(txt, 'plain', 'utf-8')
             msg['From'] = self.send_address
             msg['To'] = receive
@@ -42,4 +52,3 @@ class Email(object):
             print(e)
             return False
         return True
-

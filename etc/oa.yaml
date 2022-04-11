@@ -52,7 +52,7 @@ payroll:
   src:
     
     # Data File Path
-    file: ./test/test.xlsx
+    file: ./workload/src.xlsx
     
     # Name Column Range
     # - please specify the starting and ending cell information of the username
@@ -64,10 +64,10 @@ payroll:
     # Basic file
     # - please specify the header of the data file in this file, and subsequent 
     #   data will be automatically appended and written to the copy of the file.
-    base_file: ./test/demo.xlsx
+    base_file: ./workload/base.xlsx
 
     # File Storage Path
-    storage_dir: ./test
+    storage_dir: ./workload
 
     # Filename Prefix
     prefix: '工资单：'

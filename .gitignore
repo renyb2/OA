@@ -1,6 +1,7 @@
 HELP.md
 target/
 test/
+workload/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**
 !**/src/test/**

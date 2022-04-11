@@ -39,7 +39,7 @@ class Excel(object):
         """
         return self.wb.save(self.file)
 
-    def _format_style(self, cell) -> bool:
+    def _format_style(self, cell) -> None:
         border_type = Side(
             border_style="thin", 
             color="000000"

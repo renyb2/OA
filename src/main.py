@@ -12,15 +12,12 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import shutil
 from common.cfg import YAML
-from common.mailbox import Mailbox
+from common.excel import Excel
 
 
-CONF_FILE = r"./etc/email.yaml"
+CONF_FILE = r"./etc/oa.yaml"
 
 CONF = YAML()
 CONF = CONF.load(CONF_FILE)
-
-Mailbox = Mailbox(CONF['smtp'], CONF['send'])
-
-

@@ -1,0 +1,32 @@
+mailbox:
+  smtp:
+    server: smtp.qq.com
+    port: 465
+  send:
+    email: 779783219@qq.com
+    passwd: sftgvypjkvlybfbb
+  receive:
+    - name: '郑宏宝'
+      email: xxx
+    - name: '朱旭亮'
+      email: xxx
+    - name: '阳静'
+      email: xxx
+    - name: '程谋军'
+      email: xxx
+    - name: '李雨蓉'
+      email: 734352112@qq.com
+    - name: '杨艳妮'
+      email: xxx
+
+payroll:
+  src:
+    file: ./test/最新2月绩效工资基础表经开三中工作量.xlsx
+    name_range: 
+      start: 'E13'
+      end: 'E57'
+  dest:
+    base_file: ./test/demo.xlsx
+    storage_dir: ./test
+    prefix: '工资单：'
+

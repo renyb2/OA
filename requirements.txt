@@ -1,1 +1,2 @@
-pyyaml  # yaml
+pyyaml    # yaml
+openpyxl    # excel operator

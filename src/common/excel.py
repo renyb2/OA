@@ -13,6 +13,7 @@
 #    under the License.
 
 from openpyxl import load_workbook
+from openpyxl.styles import Border, Side, Font, Alignment
 
 
 class Excel(object):
@@ -38,7 +39,42 @@ class Excel(object):
         """
         return self.wb.save(self.file)
 
-    def add_row_with_values(self, value) -> bool:
+    def _format_style(self, cell) -> bool:
+        border_type = Side(
+            border_style="thin", 
+            color="000000"
+        )
+        border = Border(
+            left=border_type,
+            right=border_type,
+            top=border_type,
+            bottom=border_type
+        )
+        font = Font(
+            size=12, 
+            bold=False, 
+            name='微软雅黑', 
+            color="000000"
+        )
+        alignment = Alignment(
+            horizontal='center', 
+            vertical='center', 
+            wrap_text=True
+        )
+
+        cell.border = border
+        cell.font = font
+        cell.alignment = alignment
+
+    def get_max_row(self) -> int:
+        """ get all row counts in excel
+
+        Returns:
+            int: row counts
+        """
+        return self.ws.max_row
+
+    def add_row_with_values(self, value, format=False) -> bool:
         """ add a row of data to excel
 
         Args:
@@ -48,6 +84,10 @@ class Excel(object):
             bool: add success or not
         """
         self.ws.append(value)
+        if format:
+            row = self.get_max_row()
+            for cell in self.ws[row]:
+                self._format_style(cell)
         return self._save()
 
     def get_row_index_by_value(self, range) -> dict:

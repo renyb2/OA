@@ -1,10 +1,33 @@
+#    Copyright 2022 Renyb && Liyr
+#
+#    Licensed under the Apache License, Version 2.0 (the "License"); you may
+#    not use this file except in compliance with the License. You may obtain
+#    a copy of the License at
+#
+#         http://www.apache.org/licenses/LICENSE-2.0
+#
+#    Unless required by applicable law or agreed to in writing, software
+#    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+#    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+#    License for the specific language governing permissions and limitations
+#    under the License.
+
+# -----------------------------
+# Mailbox configuration module
+# -----------------------------
 mailbox:
+
+  # SMTP Server
   smtp:
     server: smtp.qq.com
     port: 465
+
+  # Outbox Information
   send:
     email: 779783219@qq.com
     passwd: sftgvypjkvlybfbb
+
+  # Recipient Information
   receive:
     - name: '郑宏宝'
       email: xxx
@@ -19,14 +42,34 @@ mailbox:
     - name: '杨艳妮'
       email: xxx
 
+
+# ----------------------------------
+# Payroll Configuration Information
+# ----------------------------------
 payroll:
+
+  # Payroll Basic Data File
   src:
+    
+    # Data File Path
     file: ./test/最新2月绩效工资基础表经开三中工作量.xlsx
+    
+    # Name Column Range
+    # - please specify the starting and ending cell information of the username
     name_range: 
       start: 'E13'
       end: 'E57'
-  dest:
-    base_file: ./test/demo.xlsx
-    storage_dir: ./test
-    prefix: '工资单：'
 
+  # Automatically Generated Data Files
+  dest:
+
+    # Basic file
+    # - please specify the header of the data file in this file, and subsequent 
+    #   data will be automatically appended and written to the copy of the file.
+    base_file: ./test/demo.xlsx
+
+    # File Storage Path
+    storage_dir: ./test
+
+    # Filename Prefix
+    prefix: '工资单：'

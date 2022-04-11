@@ -50,18 +50,17 @@ class Excel(object):
         self.ws.append(value)
         return self._save()
 
-    def get_row_index_by_value(self, start, end) -> dict:
+    def get_row_index_by_value(self, range) -> dict:
         """ Generate a map, specifying the range of values and their indices
 
         Args:
-            start (str): start cell, eg: 'E13'.
-            end (str): end cell, eg: 'E57'.
+            range (str): cell ranges, split by ':'. eg: 'E13:E57'.
 
         Returns:
             dict: a map of values and their indices
         """
         record = {}
-        for cell in self.ws[start:end]:
+        for cell in self.ws[range]:
             value = cell[0].value
             row = cell[0].row
             if value:

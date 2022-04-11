@@ -52,13 +52,11 @@ payroll:
   src:
     
     # Data File Path
-    file: ./test/最新2月绩效工资基础表经开三中工作量.xlsx
+    file: ./test/test.xlsx
     
     # Name Column Range
     # - please specify the starting and ending cell information of the username
-    name_range: 
-      start: 'E13'
-      end: 'E57'
+    name_range: 'E13:E57'
 
   # Automatically Generated Data Files
   dest:

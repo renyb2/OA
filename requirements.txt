@@ -1,2 +1,4 @@
-pyyaml    # yaml
-openpyxl    # excel operator
+pyyaml        # yaml
+openpyxl      # excel operator
+smtplib       # smtp server manager
+email         # email manager

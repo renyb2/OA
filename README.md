@@ -12,4 +12,5 @@
 - [Openpyxl 教程](https://geek-docs.com/python/python-tutorial/python-openpyxl.html)
 - [OpenPyXL库 --单元格样式设置](https://www.cnblogs.com/eternalpal/p/12900390.html)
 - [Python 自动化操作 Excel 看这一篇就够了](https://zhuanlan.zhihu.com/p/259583430)
+- [Python SMTP发送邮件](https://www.runoob.com/python/python-email.html)
 

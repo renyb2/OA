@@ -12,8 +12,10 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import os
 import smtplib
 from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 
 
 class Mailbox(object):
@@ -25,7 +27,25 @@ class Mailbox(object):
         self.send_address = send['email']
         self.send_passwd = send['passwd']
 
-    def send_email_with_txt(self, receive, subject, txt) -> bool:
+    def init_msg(self, txt, attachment=False) -> object:
+        if attachment:
+            msg = MIMEMultipart()
+            self.add_txt(msg, txt)
+            return msg
+        return MIMEText(txt, 'plain', 'utf-8')
+
+    def add_attachment(self, msg, file) -> object:
+        filename = os.path.basename(file)
+        attachment = MIMEText(open(file, 'rb').read(), 'base64', 'utf-8')
+        attachment['Content-Type'] = 'application/octet-stream'
+        attachment['Content-Disposition'] = 'attachment; filename="%s"' % filename
+        return msg.attach(attachment)
+
+    def add_txt(self, msg, txt) -> object:
+        attachment = MIMEText(txt, 'plain', 'utf-8')
+        return msg.attach(attachment)
+
+    def send_email(self, receive, subject, msg) -> bool:
         """ Send email with txt body
 
         Args:
@@ -37,7 +57,6 @@ class Mailbox(object):
             bool: whether the mail was sent successfully or not.
         """
         try:
-            msg = MIMEText(txt, 'plain', 'utf-8')
             msg['From'] = self.send_address
             msg['To'] = receive
             msg['Subject'] = subject

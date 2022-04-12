@@ -24,22 +24,14 @@ mailbox:
 
   # Outbox Information
   send:
-    email: 779783219@qq.com
-    passwd: xxkevybplfmabfbb
+    email: demo@qq.com
+    passwd: xxx
 
   # Recipient Information
   receive:
-    - name: '郑宏宝'
+    - name: 'Tom'
       email: xxx
-    - name: '朱旭亮'
-      email: xxx
-    - name: '阳静'
-      email: xxx
-    - name: '程谋军'
-      email: xxx
-    - name: '李雨蓉'
-      email: 734352112@qq.com
-    - name: '杨艳妮'
+    - name: 'Jerry'
       email: xxx
 
 
@@ -70,4 +62,4 @@ payroll:
     storage_dir: ./workload
 
     # Filename Prefix
-    prefix: '工资单：'
+    prefix: 'Auto: '
